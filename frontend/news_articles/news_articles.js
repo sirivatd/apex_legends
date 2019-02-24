@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, Linking, ScrollView, TouchableOpacity } from 'react-native';
 
 import Header from './../header/header';
 
@@ -40,11 +40,11 @@ export default class NewsArticlesIndex extends React.Component {
           <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
             {this.state.newsArticles.map(article => {
                 return (
-                    <View style={styles.article} key={article.title}>
-                    <Image style={{borderRadius: 10}} source={{uri: article.urlToImage, width: 150, height: 150}} />
-                    <Text style={styles.articleTitle}>{article.title}</Text>
-                    <Text style={styles.articleAuthor}>{article.author}</Text>
-                    </View>
+                    <TouchableOpacity style={styles.article} key={article.title} onPress={() => Linking.openURL(article.url)}>
+                      <Image style={{borderRadius: 10}} source={{uri: article.urlToImage, width: 150, height: 150}} />
+                      <Text style={styles.articleTitle}>{article.title}</Text>
+                      <Text style={styles.articleAuthor}>{article.author}</Text>
+                    </TouchableOpacity>
                 );
               })}
             </ScrollView>
