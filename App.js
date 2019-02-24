@@ -24,7 +24,7 @@ const AppNavigator = createDrawerNavigator(
     },
     contentComponent: (props) => (
       <View style={styles.menuContent}>
-        <Text>Custom Header</Text>
+        <Image source={{uri: 'https://ih0.redbubble.net/image.747403214.6209/flat,550x550,075,f.u1.jpg'}} style={styles.headerLogo} />
         <DrawerItems {...props} />
         <Text>Custom Footer</Text>
       </View>
@@ -47,6 +47,11 @@ const styles = StyleSheet.create({
   menuContent: {
     paddingTop: 70,
     paddingLeft: 20,
-  }
+  },
+  headerLogo: {
+    width: 230,
+    height: 230,
+    marginBottom: 40,
+  },
 });
 
