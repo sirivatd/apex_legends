@@ -30,16 +30,17 @@ export default class NewsArticlesIndex extends React.Component {
       render() {
         const newsLoaded = this.state.numArticles > 0
         return (
-    
           <View style={styles.container}>
-            <Text style={styles.titleText}>Latest News</Text>
+            <View style={styles.header}>
+                <Text style={styles.titleText}>Latest News</Text>
+            </View>
            <ScrollView>
            {this.state.newsArticles.slice(0, 25).map(article => {
               return (
                 <View style={styles.article} key={article.title}>
-                  <Image source={{uri: article.urlToImage, width: 64, height: 64}} />
-                  <Text>{article.title}</Text>
-                  <Text>{article.author}</Text>
+                  <Image source={{uri: article.urlToImage, width: 150, height: 150}} />
+                  <Text style={styles.articleTitle}>{article.title}</Text>
+                  <Text style={styles.articleAuthor}>{article.author}</Text>
                 </View>
               );
             })}
@@ -57,16 +58,37 @@ export default class NewsArticlesIndex extends React.Component {
         alignItems: 'center',
         justifyContent: 'center',
       },
+      header: {
+          width: '100%',
+          backgroundColor: '#FFF',
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          height: 100,
+          marginBottom: 15,
+      },
       titleText: {
         fontSize: 30,
-        marginTop: 60,
-        marginBottom: 15
+        marginBottom: 10
       },
       article: {
         height: 150,
-        width: 330,
+        width: 350,
         backgroundColor: '#FFF', 
         marginBottom: 10, 
-        borderRadius: 10
+        borderRadius: 10,
+        justifyContent: 'space-between'
       },
+      articleAuthor: {
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          backgroundColor: '#FFF',
+          padding: 5,
+      },
+      articleTitle: {
+          position: 'absolute',
+          top: 3,
+          left: 160,
+          width: 165
+      }
     });
