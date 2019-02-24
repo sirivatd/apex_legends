@@ -38,7 +38,7 @@ export default class NewsArticlesIndex extends React.Component {
             {this.state.newsArticles.slice(0, 25).map(article => {
                 return (
                     <View style={styles.article} key={article.title}>
-                    <Image source={{uri: article.urlToImage, width: 150, height: 150}} />
+                    <Image style={{borderRadius: 10}} source={{uri: article.urlToImage, width: 150, height: 150}} />
                     <Text style={styles.articleTitle}>{article.title}</Text>
                     <Text style={styles.articleAuthor}>{article.author}</Text>
                     </View>
@@ -83,6 +83,7 @@ export default class NewsArticlesIndex extends React.Component {
           left: 0,
           backgroundColor: '#FFF',
           padding: 5,
+          borderRadius: 5
       },
       articleTitle: {
           position: 'absolute',
