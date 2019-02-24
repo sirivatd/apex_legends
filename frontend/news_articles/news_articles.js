@@ -59,8 +59,8 @@ export default class NewsArticlesIndex extends React.Component {
       },
       titleText: {
         fontSize: 30,
-        marginTop: 50,
-        marginBottom: 5
+        marginTop: 60,
+        marginBottom: 15
       },
       article: {
         height: 150,
