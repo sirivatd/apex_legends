@@ -34,7 +34,7 @@ export default class NewsArticlesIndex extends React.Component {
             <View style={styles.header}>
                 <Text style={styles.titleText}>Latest News</Text>
             </View>
-           <ScrollView>
+           <ScrollView showsVerticalScrollIndicator={false}>
            {this.state.newsArticles.slice(0, 25).map(article => {
               return (
                 <View style={styles.article} key={article.title}>
