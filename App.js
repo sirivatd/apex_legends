@@ -4,11 +4,12 @@ import { createStackNavigator, createDrawerNavigator, createAppContainer, Drawer
 
 import NewsArticleIndex from './frontend/news_articles/news_articles';
 import PlayersIndex from './frontend/leaderboard/players_index';
+import Header from './frontend/header/header';
 
 const AppNavigator = createDrawerNavigator(
   {
   Home: NewsArticleIndex,
-  Leaderboard: PlayersIndex
+  Leaderboard: PlayersIndex,
   },
   {
     initialRouteName: "Home",

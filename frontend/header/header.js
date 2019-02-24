@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList } from 'react-native';
-
-export default class Header extends React.Component {
+import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList, TouchableHighlight } from 'react-native';
+import { withNavigation } from 'react-navigation';
+class Header extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -9,7 +9,9 @@ export default class Header extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image source={{uri: 'https://img.icons8.com/color/48/000000/squared-menu.png'}} style={styles.menuIcon} />
+                <TouchableHighlight onPress={() => this.props.toggleMenu()} style={styles.menuIconWrapper}>
+                    <Image source={{uri: 'https://img.icons8.com/color/48/000000/squared-menu.png'}} style={styles.menuIcon} />
+                </TouchableHighlight>
                 <Text style={styles.title}>{this.props.title}</Text>
             </View>
         );
@@ -36,12 +38,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#FFF',
     },
-    menuIcon: {
-        width: 35,
-        height: 35,
+    menuIconWrapper: {
         position: 'absolute',
         left: 15,
         bottom: 11,
+    },
+    menuIcon: {
+        width: 35,
+        height: 35,
         tintColor: '#FFF',
     }
 })
+
+export default withNavigation(Header);

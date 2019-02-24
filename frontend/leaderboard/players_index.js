@@ -4,13 +4,6 @@ import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList } fr
 export default class PlayersIndex extends React.Component {
     static navigationOptions = {
         title: 'Leaderboard',
-        headerLeft: (
-            <Button
-              onPress={() => alert('This is a button!')}
-              title="Info"
-              color="#fff"
-            />
-          ),
       };
     render() {
         return (

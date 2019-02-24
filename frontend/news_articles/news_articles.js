@@ -35,9 +35,8 @@ export default class NewsArticlesIndex extends React.Component {
     render() {
       const newsLoaded = this.state.numArticles > 0
       return (
-    
         <View style={styles.container}>
-          <Header title="Latest News" />
+          <Header title="Latest News" toggleMenu={() => this.props.navigation.toggleDrawer()} />
           <ScrollView>
           {this.state.newsArticles.slice(0, 25).map(article => {
             return (
@@ -49,12 +48,8 @@ export default class NewsArticlesIndex extends React.Component {
             );
           })}
           </ScrollView>
-          <Button
-            title="Go to Leaderboard"
-            onPress={() => this.props.navigation.toggleDrawer()}
-          />
-           <Text>{this.state.numArticles}</Text>
-           </View>
+          <Text>{this.state.numArticles}</Text>
+        </View>
       );
     }
   }
