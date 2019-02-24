@@ -16,27 +16,28 @@ export default class GunsSlider extends React.Component {
                 <View style={styles.gunItem}>
                     <Text style={styles.gunName}>I'm a gun</Text>
                     <TouchableOpacity style={styles.gunDetails}>
-                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300}}></Image>
+                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300, borderRadius: 10}}></Image>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.gunItem}>
                     <Text style={styles.gunName}>I'm a gun</Text>
                     <TouchableOpacity style={styles.gunDetails}>
-                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300}}></Image>
+                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300, borderRadius: 10}}></Image>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.gunItem}>
                     <Text style={styles.gunName}>I'm a gun</Text>
                     <TouchableOpacity style={styles.gunDetails}>
-                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300}}></Image>
+                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300, borderRadius: 10}}></Image>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.gunItem}>
                     <Text style={styles.gunName}>I'm a gun</Text>
                     <TouchableOpacity style={styles.gunDetails}>
-                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300}}></Image>
+                        <Image source={require('./../../assets/guns/p2020.png')} style={{width: 300, borderRadius: 10}}></Image>
                     </TouchableOpacity>
                 </View>
+                
             </ScrollView>
         );
     }
@@ -44,7 +45,7 @@ export default class GunsSlider extends React.Component {
 
 const styles = StyleSheet.create({
     sliderBase: {
-        marginTop: 30,
+        marginTop: 50,
         width: '100%',
         height: '70%',
     },
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
         height: '70%',
         alignItems: 'center',
         marginLeft: 20,
+        marginRight: 20,
     },
     gunDetails: {
         backgroundColor: '#1e1e1e',

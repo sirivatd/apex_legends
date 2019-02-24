@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Picker, Alert } from 'react-native';
+import { Platform, StyleSheet, Text, View, Picker, Alert } from 'react-native';
 
 import Header from './../header/header';
 import GunsSlider from './guns_slider';
@@ -24,8 +24,7 @@ export default class GunsIndex extends React.Component {
         const gunClass = _gunClass.bind(this);
         return (
             <View style={styles.container}>
-                <Header title="Guns" toggleMenu={() => this.props.navigation.toggleDrawer()} />
-                <View style={{borderWidth: 2, borderRadius: 10, borderColor: '#686868', width: 250, alignItems: 'center', backgroundColor: '#FFF'}}>
+                <View style={styles.pickerContainer}>
                     <Picker
                         selectedValue={gunClass()}
                         style={styles.classSelector}
@@ -42,6 +41,7 @@ export default class GunsIndex extends React.Component {
                     </Picker>
                 </View>
                 <GunsSlider />
+                <Header title="Guns" toggleMenu={() => this.props.navigation.toggleDrawer()} />
             </View>
         )
     }
@@ -53,14 +53,32 @@ export default class GunsIndex extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
+    },
+    pickerContainer: {
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: '#D0D0D0',
+        width: 250,
+        alignItems: 'center',
+        marginTop: 50,
+        ...Platform.select({
+            ios: {
+                height: 200
+            },
+            android: {
+                height: 120
+            },
+        }),
     },
     classSelector: {
         width: 162,
-        marginTop: 120,
         color: '#686868',
-        borderWidth: 2,
-        borderColor: 'black'
+        flex: 1,
+        ...Platform.select({
+            android: {
+                marginTop: 60
+            },
+        }),
     }
 });
