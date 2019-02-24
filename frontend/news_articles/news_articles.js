@@ -14,7 +14,7 @@ export default class NewsArticlesIndex extends React.Component {
 
     componentDidMount() {
         // call api to fetch news articles
-        let url =
+        let url =asdasdadas
           "https://newsapi.org/v2/everything?" +
           "q=apexlegends&" +
           "apiKey=4ddc19b190b74a96b4b137f0a3e546f9";
