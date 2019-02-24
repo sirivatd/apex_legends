@@ -30,23 +30,22 @@ export default class NewsArticlesIndex extends React.Component {
       render() {
         const newsLoaded = this.state.numArticles > 0
         return (
-          <View style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.titleText}>Latest News</Text>
             </View>
-           <ScrollView showsVerticalScrollIndicator={false}>
-           {this.state.newsArticles.slice(0, 25).map(article => {
-              return (
-                <View style={styles.article} key={article.title}>
-                  <Image source={{uri: article.urlToImage, width: 150, height: 150}} />
-                  <Text style={styles.articleTitle}>{article.title}</Text>
-                  <Text style={styles.articleAuthor}>{article.author}</Text>
-                </View>
-              );
-            })}
+            <ScrollView showsVerticalScrollIndicator={false}>
+            {this.state.newsArticles.slice(0, 25).map(article => {
+                return (
+                    <View style={styles.article} key={article.title}>
+                    <Image source={{uri: article.urlToImage, width: 150, height: 150}} />
+                    <Text style={styles.articleTitle}>{article.title}</Text>
+                    <Text style={styles.articleAuthor}>{article.author}</Text>
+                    </View>
+                );
+                })}
             </ScrollView>
-            <Text>{this.state.numArticles}</Text>
-            </View>
+        </View>
         );
       }
     }
@@ -54,7 +53,7 @@ export default class NewsArticlesIndex extends React.Component {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        backgroundColor: '#d3d3d3',
+        backgroundColor: '#ececec',
         alignItems: 'center',
         justifyContent: 'center',
       },
