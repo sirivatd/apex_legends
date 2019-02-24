@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Picker, Alert } from 'react-native';
 
 import Header from './../header/header';
+import GunsSlider from './guns_slider';
 
 export default class GunsIndex extends React.Component {
     static navigationOptions = {
@@ -40,7 +41,7 @@ export default class GunsIndex extends React.Component {
                         <Picker.Item label="LMGs" value="lmg" />
                     </Picker>
                 </View>
-                <Text>This is the guns index</Text>
+                <GunsSlider />
             </View>
         )
     }
