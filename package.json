@@ -11,6 +11,7 @@
     "jquery": "^3.3.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-simple-animations": "^0.2.0",
     "react-native-vector-icons": "^6.3.0",
     "react-navigation": "^3.3.0"
   },
