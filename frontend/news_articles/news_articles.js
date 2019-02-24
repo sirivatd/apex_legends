@@ -48,7 +48,6 @@ export default class NewsArticlesIndex extends React.Component {
                 );
               })}
             </ScrollView>
-          <Text>{this.state.numArticles}</Text>
         </View>
       );
     }
@@ -82,7 +81,12 @@ export default class NewsArticlesIndex extends React.Component {
         backgroundColor: '#FFF', 
         marginBottom: 10, 
         borderRadius: 10,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        elevation:4,
+      shadowOffset: { width: 5, height: 5 },
+      shadowColor: "grey",
+      shadowOpacity: 0.5,
+      shadowRadius: 10,
       },
       articleAuthor: {
           position: 'absolute',
