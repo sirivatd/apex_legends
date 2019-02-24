@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList } from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createDrawerNavigator, createAppContainer, DrawerItems, DrawerNavigator } from "react-navigation";
 
 import NewsArticleIndex from './frontend/news_articles/news_articles';
 import PlayersIndex from './frontend/leaderboard/players_index';
 
-const AppNavigator = createStackNavigator(
+const AppNavigator = createDrawerNavigator(
   {
   Home: NewsArticleIndex,
   Leaderboard: PlayersIndex
@@ -21,6 +21,13 @@ const AppNavigator = createStackNavigator(
         fontWeight: 'bold',
       },
     },
+    contentComponent: (props) => (
+      <View>
+        <Text>Custom Header</Text>
+        <DrawerItems {...props} />
+        <Text>Custom Footer</Text>
+      </View>
+    )
   }
 );
 const AppContainer = createAppContainer(AppNavigator);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList } from 'react-native';
 
+import Header from './../header/header';
 
 export default class NewsArticlesIndex extends React.Component {
   static navigationOptions = {
@@ -36,6 +37,7 @@ export default class NewsArticlesIndex extends React.Component {
       return (
     
         <View style={styles.container}>
+          <Header title="Latest News" />
           <ScrollView>
           {this.state.newsArticles.slice(0, 25).map(article => {
             return (
@@ -49,7 +51,7 @@ export default class NewsArticlesIndex extends React.Component {
           </ScrollView>
           <Button
             title="Go to Leaderboard"
-            onPress={() => this.props.navigation.navigate('Leaderboard')}
+            onPress={() => this.props.navigation.toggleDrawer()}
           />
            <Text>{this.state.numArticles}</Text>
            </View>
