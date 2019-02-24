@@ -37,7 +37,7 @@ export default class NewsArticlesIndex extends React.Component {
       return (
         <View style={styles.container}>
           <Header title="Latest News" toggleMenu={() => this.props.navigation.toggleDrawer()} />
-          <ScrollView>
+          <ScrollView style={styles.scrollView}>
           {this.state.newsArticles.slice(0, 25).map(article => {
             return (
               <View style={styles.article} key={article.title}>
@@ -60,6 +60,9 @@ export default class NewsArticlesIndex extends React.Component {
         backgroundColor: '#d3d3d3',
         alignItems: 'center',
         justifyContent: 'center',
+      },
+      scrollView: {
+        marginTop: 120
       },
       article: {
         height: 150,

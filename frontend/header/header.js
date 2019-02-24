@@ -21,6 +21,9 @@ class Header extends React.Component {
 const styles = StyleSheet.create({
     container: {
       width: '100%',
+      position: 'absolute',
+      top: 0,
+      left: 0,
       backgroundColor: '#f4511e',
       tintColor: '#fff',
       height: 110,

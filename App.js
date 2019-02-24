@@ -23,7 +23,7 @@ const AppNavigator = createDrawerNavigator(
       },
     },
     contentComponent: (props) => (
-      <View>
+      <View style={styles.menuContent}>
         <Text>Custom Header</Text>
         <DrawerItems {...props} />
         <Text>Custom Footer</Text>
@@ -43,6 +43,10 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  menuContent: {
+    paddingTop: 70,
+    paddingLeft: 20,
   }
 });
 
