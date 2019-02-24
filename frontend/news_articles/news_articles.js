@@ -1,41 +1,44 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList } from 'react-native';
 
+import Header from './../header/header';
 
 export default class NewsArticlesIndex extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        newsArticles: [],
-        newsLoaded: false,
-        numArticles: 0
-      };
-    }
+  static navigationOptions = {
+    title: 'Latest News',
+  };
 
-    componentDidMount() {
-        // call api to fetch news articles
-        let url =
-          "https://newsapi.org/v2/everything?" +
-          "q=apexlegends&" +
-          "apiKey=4ddc19b190b74a96b4b137f0a3e546f9";
+  constructor(props) {
+    super(props);
+    this.state = {
+      newsArticles: [],
+      newsLoaded: false,
+      numArticles: 0
+    };
+  }
+
+  componentDidMount() {
+    // call api to fetch news articles
+    let url =
+      "https://newsapi.org/v2/everything?" +
+      "q=apexlegends&" +
+      "apiKey=4ddc19b190b74a96b4b137f0a3e546f9";
     
-          fetch(url)
-          .then(res => res.json())
-          .then((data) => {
-            this.setState({newsArticles: data.articles, newsLoaded: true, numArticles: data.totalResults })
-          })
-          .catch(err => { throw err });
-      }
+      fetch(url)
+      .then(res => res.json())
+      .then((data) => {
+      this.setState({newsArticles: data.articles, newsLoaded: true, numArticles: data.totalResults })
+        })
+      .catch(err => { throw err });
+    }
     
-      render() {
-        const newsLoaded = this.state.numArticles > 0
-        return (
+    render() {
+      const newsLoaded = this.state.numArticles > 0
+      return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.titleText}>Latest News</Text>
-            </View>
-            <ScrollView showsVerticalScrollIndicator={false}>
-            {this.state.newsArticles.slice(0, 25).map(article => {
+          <Header title="Latest News" toggleMenu={() => this.props.navigation.toggleDrawer()} />
+          <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+            {this.state.newsArticles.map(article => {
                 return (
                     <View style={styles.article} key={article.title}>
                     <Image style={{borderRadius: 10}} source={{uri: article.urlToImage, width: 150, height: 150}} />
@@ -43,12 +46,12 @@ export default class NewsArticlesIndex extends React.Component {
                     <Text style={styles.articleAuthor}>{article.author}</Text>
                     </View>
                 );
-                })}
+              })}
             </ScrollView>
         </View>
-        );
-      }
+      );
     }
+  }
     
     const styles = StyleSheet.create({
       container: {
@@ -56,6 +59,9 @@ export default class NewsArticlesIndex extends React.Component {
         backgroundColor: '#ececec',
         alignItems: 'center',
         justifyContent: 'center',
+      },
+      scrollView: {
+        marginTop: 120
       },
       header: {
           width: '100%',
@@ -75,7 +81,12 @@ export default class NewsArticlesIndex extends React.Component {
         backgroundColor: '#FFF', 
         marginBottom: 10, 
         borderRadius: 10,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        elevation:4,
+      shadowOffset: { width: 5, height: 5 },
+      shadowColor: "grey",
+      shadowOpacity: 0.5,
+      shadowRadius: 10,
       },
       articleAuthor: {
           position: 'absolute',
