@@ -30,8 +30,7 @@ export default class GunsIndex extends React.Component {
                         style={styles.classSelector}
                         onValueChange={(itemValue, itemIndex) => 
                             this.setState({class: itemValue})
-                        }
-                    >
+                    }>
                         <Picker.Item label="Pistols" value="pistol" />
                         <Picker.Item label="Shotguns" value="shotgun" />
                         <Picker.Item label="Assault Rifles" value="ar" />
