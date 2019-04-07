@@ -14,7 +14,7 @@ const AppNavigator = createDrawerNavigator(
   Guns: GunsIndex
   },
   {
-    initialRouteName: "Guns",
+    initialRouteName: "Home",
      defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
