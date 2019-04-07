@@ -21,7 +21,7 @@ export default class NewsArticlesIndex extends React.Component {
     // call api to fetch news articles
     let url =
       "https://newsapi.org/v2/everything?" +
-      "q=apexlegends&" +
+      "q=apexlegends&sortBy=publishedAt&language=en&" +
       "apiKey=4ddc19b190b74a96b4b137f0a3e546f9";
     
       fetch(url)
@@ -38,9 +38,9 @@ export default class NewsArticlesIndex extends React.Component {
         <View style={styles.container}>
           <Header title="Latest News" toggleMenu={() => this.props.navigation.toggleDrawer()} />
           <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
-            {this.state.newsArticles.map(article => {
+            {this.state.newsArticles.map((article, index) => {
                 return (
-                    <TouchableOpacity style={styles.article} key={article.title} onPress={() => Linking.openURL(article.url)}>
+                    <TouchableOpacity style={styles.article} key={index} onPress={() => Linking.openURL(article.url)}>
                       <Image style={{borderRadius: 10}} source={{uri: article.urlToImage, width: 150, height: 150}} />
                       <Text style={styles.articleTitle}>{article.title}</Text>
                       <Text style={styles.articleAuthor}>{article.author}</Text>
@@ -83,10 +83,10 @@ export default class NewsArticlesIndex extends React.Component {
         borderRadius: 10,
         justifyContent: 'space-between',
         elevation:4,
-      shadowOffset: { width: 5, height: 5 },
-      shadowColor: "grey",
-      shadowOpacity: 0.5,
-      shadowRadius: 10,
+        shadowOffset: { width: 5, height: 5 },
+        shadowColor: "grey",
+        shadowOpacity: 0.5,
+        shadowRadius: 10,
       },
       articleAuthor: {
           position: 'absolute',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, Alert, ScrollView, FlatList, TouchableHighlight } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { SimpleAnimation } from 'react-native-simple-animations';
 class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,15 @@ class Header extends React.Component {
                 <TouchableHighlight onPress={() => this.props.toggleMenu()} style={styles.menuIconWrapper}>
                     <Image source={{uri: 'https://img.icons8.com/color/48/000000/squared-menu.png'}} style={styles.menuIcon} />
                 </TouchableHighlight>
-                <Text style={styles.title}>{this.props.title}</Text>
+                <SimpleAnimation
+                    duration={1200}
+                    fade
+                    movementType="slide"
+                    distance={100}
+                    direction="up"
+                >
+                    <Text style={styles.title}>{this.props.title}</Text>
+                </SimpleAnimation>
             </View>
         );
     }

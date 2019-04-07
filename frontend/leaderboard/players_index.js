@@ -8,7 +8,7 @@ export default class PlayersIndex extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-                <Header title="Latest News" toggleMenu={() => this.props.navigation.toggleDrawer()} />
+                <Header title="Leaderboard" toggleMenu={() => this.props.navigation.toggleDrawer()} />
                 <Text>This is the leaderboard</Text>
             </View>
         );
